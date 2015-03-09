@@ -90,7 +90,7 @@
 		template 		:   '<div class="popover"><div class="arrow"></div>'
 							+ '<h3 class="popover-title"></h3>'
 							+ '<div class="popover-content">'
-							+ '<a data-apply="confirmation">Yes</a>'
+							+ '<a data-apply="confirmation">Yes</a> '
 							+ '<a data-dismiss="confirmation">No</a>'
 							+ '</div>'
 							+ '</div>'
@@ -118,8 +118,8 @@
 		$btnOk.addClass(this.getBtnOkClass())
 			.html(this.getBtnOkLabel())
 			.prepend($('<i></i>').addClass(this.getBtnOkIcon()), " ")
-			.attr('href', this.getHref())
-			.attr('target', this.getTarget())
+			//.attr('href', this.getHref())
+			//.attr('target', this.getTarget())
 			.off('click').on('click', function(event) {
 				options.onConfirm(event, that.$element);
 

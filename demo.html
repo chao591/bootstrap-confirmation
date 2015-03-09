@@ -20,6 +20,24 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>With callback functions</h1>
+				<pre>$("a.ajax-delete").confirmation({
+		title:"你确定要删除吗？",
+		btnOkLabel:"确定",
+		btnCancelLabel:"取消",
+		onConfirm: function(event) { 
+			console.info(event);
+			return false;
+		}
+	});</pre>
+
+				<a href="http://www.baidu.com" class="btn btn-default ajax-delete">点我</a>
+
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<h1>自定义，中文</h1>
 				<pre>$('.confirmation-callback').confirmation({
 	onConfirm: function(event) { alert('confirm') },
 	onCancel: function(event) { alert('cancel') }
@@ -42,6 +60,17 @@
 	$('.confirmation-callback').confirmation({
 		onConfirm: function() { alert('confirm') },
 		onCancel: function() { alert('cancel') }
+	});
+	$("a.ajax-delete").confirmation({
+		title:"你确定要删除吗？",
+		btnOkLabel:"确定",
+		btnCancelLabel:"取消",
+		href:"",
+		onConfirm: function(event,element) { 
+			console.info(element);
+			console.info(element.get(0).href);
+			//return false;
+		}
 	});
 	</script>
 </body>
