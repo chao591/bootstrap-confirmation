@@ -1,8 +1,26 @@
-<!DOCTYPE html><html><head><title>Bootstrap-Confirmation Demo</title><meta charset=UTF-8><meta name=viewport content="width=device-width"><link href=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css rel=stylesheet><body><div class=container><div class=row><div class=col-md-12><h1>Default options with datta toggle</h1><pre>$('[data-toggle="confirmation"]').confirmation();</pre><a href=# class="btn btn-default" data-toggle=confirmation>Click me</a></div></div><div class=row><div class=col-md-12><h1>With callback functions</h1><pre>$('.confirmation-callback').confirmation({
+<!DOCTYPE html><html><head><title>Bootstrap-Confirmation Demo</title><meta charset=UTF-8><meta name=viewport content="width=device-width"><link href=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css rel=stylesheet><body><div class=container><div class=row><div class=col-md-12><h1>Default options with datta toggle</h1><pre>$('[data-toggle="confirmation"]').confirmation();</pre><a href=# class="btn btn-default" data-toggle=confirmation>Click me</a></div></div><div class=row><div class=col-md-12><h1>With callback functions</h1><pre>$("a.ajax-delete").confirmation({
+		title:"你确定要删除吗？",
+		btnOkLabel:"确定",
+		btnCancelLabel:"取消",
+		onConfirm: function(event) { 
+			console.info(event);
+			return false;
+		}
+	});</pre><a href=http://www.baidu.com class="btn btn-default ajax-delete">点我</a></div></div><div class=row><div class=col-md-12><h1>自定义，中文</h1><pre>$('.confirmation-callback').confirmation({
 	onConfirm: function(event) { alert('confirm') },
 	onCancel: function(event) { alert('cancel') }
 });</pre><a href=# class="btn btn-default confirmation-callback">Click me</a></div></div></div><script src=http://code.jquery.com/jquery-1.10.2.min.js></script><script src=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js></script><script src=bootstrap-confirmation.min.js></script><script>$('[data-toggle="confirmation"]').confirmation();
 	$('.confirmation-callback').confirmation({
 		onConfirm: function() { alert('confirm') },
 		onCancel: function() { alert('cancel') }
+	});
+	$("a.ajax-delete").confirmation({
+		title:"你确定要删除吗？",
+		btnOkLabel:"确定",
+		btnCancelLabel:"取消",
+		href:"",
+		onConfirm: function(event,element) { 
+			console.info(element);
+			//return false;
+		}
 	});</script>
